@@ -1,0 +1,12 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+#header {
+    height: 10vh;
+    background-color: rgb(12, 12, 89);
+    color: white;
+}
