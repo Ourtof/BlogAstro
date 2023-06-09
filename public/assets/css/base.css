@@ -10,3 +10,8 @@
     background-color: rgb(12, 12, 89);
     color: white;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
