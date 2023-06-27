@@ -10,7 +10,7 @@
 // { name: 'Fluttershy', strength: '67', speed: '64', charisma: '30' }];
 
 const astro = [1, 2, 3, 4, 5];
-const containerCarrousel = document.getElementById('container-carrousel');
+const panneau = document.getElementById('panneau');
 
 for (let i = 0; i < astro.length; i++) {
     //console.log(astro);
@@ -19,7 +19,7 @@ for (let i = 0; i < astro.length; i++) {
     let img = document.createElement('img');
     div.append(img);
     img.src = 'assets/img/home' + (i+1) + '.jpg'
-    containerCarrousel.append(div);
+    panneau.append(div);
 }
 
 

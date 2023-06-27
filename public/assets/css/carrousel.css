@@ -1,0 +1,21 @@
+img {
+    max-width: 100vh;
+    min-width: 100vh;
+}
+
+#container_img {
+    /* margin-top: 10%; */
+    height: 100vh;
+}
+
+#carrousel {
+    overflow: hidden;
+    /* margin-left: 40%; */
+}
+
+#panneau {
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    transition: all 0.5s ease;
+}
