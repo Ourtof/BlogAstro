@@ -1,20 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MenuArticleController!{% endblock %}
+{% block title %}Menu{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/BlogAstro/src/Controller/MenuArticleController.php'|file_link(0) }}">src/Controller/MenuArticleController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/BlogAstro/templates/menu_article/index.html.twig'|file_link(0) }}">templates/menu_article/index.html.twig</a></code></li>
-    </ul>
+{# Barre de recherche #}
+<div class="d-flex justify-content-center">
+    <div class="input-group rounded pt-5 w-50">
+    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+    <span class="input-group-text border-0" id="search-addon">
+        <i class="bi bi-search"></i>
+    </span>
+    </div>
 </div>
+
 {% endblock %}
