@@ -39,6 +39,17 @@ class ArticleRepository extends ServiceEntityRepository
         }
     }
 
+    public function getArticleByTag(string $tag) {
+        $params["tag"] = "%" . $tag . "%";
+
+        $sql = "SELECT a.titre
+                FROM App\Entity\Article a
+                WHERE a.tag LIKE :tag
+                ";
+
+        return $this->getEntityManager()->createQuery($sql)->setParameters($params)->getResult();
+    }
+
 //    /**
 //     * @return Article[] Returns an array of Article objects
 //     */

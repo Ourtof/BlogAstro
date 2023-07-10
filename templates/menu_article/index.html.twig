@@ -14,4 +14,24 @@
     </div>
 </div>
 
+<form>
+    <label for="choose-tag">tag</label>
+    <select name="choose-tag" id="choose-tag">
+        {% for tag in tagArray %}
+            <option value="{{ tag.nom }}">{{ tag.nom }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Rechercher</button>
+</form>
+
+<div id="result"></div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        const getArticleByTagUrl = "{{ path('menu-article-get-article-ajax') }}";
+    </script>
+
+    <script src="{{ asset('assets/js/article-search.js') }}"></script>
 {% endblock %}
