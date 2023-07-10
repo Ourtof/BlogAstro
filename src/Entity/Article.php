@@ -16,12 +16,6 @@ class Article
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToMany(targetEntity: Filtre::class, mappedBy: 'id_filtre')]
-    private Collection $filtre_id;
-
-    #[ORM\ManyToMany(targetEntity: filtre::class)]
-    private Collection $id_article;
-
     #[ORM\Column(length: 50)]
     private ?string $titre = null;
 
@@ -34,67 +28,17 @@ class Article
     #[ORM\OneToMany(mappedBy: 'article_id', targetEntity: Illustration::class)]
     private Collection $illustrations;
 
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $tag = null;
+
     public function __construct()
     {
-        $this->filtre_id = new ArrayCollection();
-        $this->id_article = new ArrayCollection();
         $this->illustrations = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return Collection<int, Filtre>
-     */
-    public function getFiltreId(): Collection
-    {
-        return $this->filtre_id;
-    }
-
-    public function addFiltreId(Filtre $filtreId): self
-    {
-        if (!$this->filtre_id->contains($filtreId)) {
-            $this->filtre_id->add($filtreId);
-            $filtreId->addIdFiltre($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFiltreId(Filtre $filtreId): self
-    {
-        if ($this->filtre_id->removeElement($filtreId)) {
-            $filtreId->removeIdFiltre($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, filtre>
-     */
-    public function getIdArticle(): Collection
-    {
-        return $this->id_article;
-    }
-
-    public function addIdArticle(filtre $idArticle): self
-    {
-        if (!$this->id_article->contains($idArticle)) {
-            $this->id_article->add($idArticle);
-        }
-
-        return $this;
-    }
-
-    public function removeIdArticle(filtre $idArticle): self
-    {
-        $this->id_article->removeElement($idArticle);
-
-        return $this;
     }
 
     public function getTitre(): ?string
@@ -159,6 +103,18 @@ class Article
                 $illustration->setArticleId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTag(): ?string
+    {
+        return $this->tag;
+    }
+
+    public function setTag(?string $tag): self
+    {
+        $this->tag = $tag;
 
         return $this;
     }
