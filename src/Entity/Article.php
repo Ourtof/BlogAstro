@@ -29,7 +29,7 @@ class Article
     private Collection $illustrations;
 
     #[ORM\Column(length: 100, nullable: true)]
-    private ?string $tag = null;
+    private ?array $tag = null;
 
     public function __construct()
     {
@@ -107,12 +107,12 @@ class Article
         return $this;
     }
 
-    public function getTag(): ?string
+    public function getTag(): ?array
     {
         return $this->tag;
     }
 
-    public function setTag(?string $tag): self
+    public function setTag(?array $tag): self
     {
         $this->tag = $tag;
 
